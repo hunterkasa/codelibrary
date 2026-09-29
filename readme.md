@@ -1,0 +1,1 @@
+Stuff I use for competitive programming.
