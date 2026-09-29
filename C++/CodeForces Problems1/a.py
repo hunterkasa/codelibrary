@@ -1,7 +1,6 @@
-while ( 1 ):
-    a, b = input().split()
-    a = int(a)
-    b = int(b)
-    if a == 0 and b == 0:
-        break
-    print(a**b)
+n,m,k = map(int,input().split())
+
+x = pow((1 << n) + (1 << m),k)
+
+cnt = bin(x).count('1')
+print(cnt)

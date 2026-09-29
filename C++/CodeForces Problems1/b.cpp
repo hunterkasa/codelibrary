@@ -1,141 +1,149 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+//#include<ext/pb_ds/assoc_container.hpp>
+//#include<ext/pb_ds/tree_policy.hpp>
+
 using namespace std;
- 
-#define io              ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
-#define endl            "\n"
-#define REP( i, n )  for( long long i = 1; i <= n; i++ )
-#define fr( i, n )      for( long long i = 0; i < n; i++ )
-#define f( n )          for( long long i = 0; i < n; i++ )
-#define rf( i, n )      for( long long i = n; i >= 0; i-- )
-#define py              cout << "YES\n";
-#define pyy             cout << "Yes\n";
-#define pyyy            cout << "yes\n";
-#define pn              cout << "NO\n";
-#define pnn             cout << "No\n";
-#define pnnn            cout << "no\n";
-#define all(v)          v.begin(),v.end()
-#define rall(v)         v.rbegin(),v.rend()
-#define pb              push_back
-#define vll             vector<long long>
-#define ss              second
+//using namespace __gnu_pbds;
+//using u128 = __uint128_t;
+//using i128 = __int128_t;
+
+#define read()          freopen("cooling.in","r",stdin)
+#define write()         freopen("cooling.out","w",stdout)
+
 #define ff              first
-#define lb(v,x)         lower_bound(all(v),x)-v.begin()
-#define ub(v,x)         upper_bound(all(v),x)-v.begin()
-#define watch(x)        cerr << "\n" << (#x) << " is " << (x) << endl;
-#define precision(a)    cout << fixed << setprecision(a) 
-#define mem(x)        memset(x,0,sizeof(x))
-// #define INF             INT_MAX;
-// #define cerr            if(false)cerr
-typedef long long int lli;
-typedef long long ll;
-typedef unsigned long long ull;
- 
-void fast(){
-    io;
-    #ifndef ONLINE_JUDGE
-        freopen("input.txt","r",stdin);
-        /*freopen("output.txt","w",stdout);*/
-    #endif
-}
+#define ss              second
+#define pb              push_back
+#define endl            "\n"
+#define ll              long long
+#define double          long double
+#define ull             unsigned long long
+#define all(x)          x.begin(), x.end()
+#define rall(x)         x.rbegin(), x.rend()
+#define uniq(x)         unique(x.begin(), x.end()) - x.begin()
+#define deci(x)         cout << fixed << setprecision(x);
+#define war()           ios::sync_with_stdio(0); cin.tie(0);
 
-int n,m;
-const int N = 1e5+5;
-vll a1[N], a[N], a2[N];
-ll vis[N], vis1[N], vis2[N];
-vll ans;
-ll indeg[N];
+const ll LLMax = 1e18;
+const ll LLMin = -1e18;
+const ll MOD   = 1e9+7;
+const double PI = acos(-1);       //3.1415926535897932384626
 
-void topo_dfsa(int x){
-    vis[x] = 1;
-    for ( int node : a[x] ){
-        if ( !vis[node] )
-            topo_dfsa(node);
-    }
-    ans.pb(x);
-}
-void topo_dfsa1(int x){
-    vis1[x] = 1;
-    for ( int node : a1[x] ){
-        if ( !vis1[node] )
-            topo_dfsa1(node);
-    }
-    ans.pb(x);
-}
-void topo_dfsa2(int x){
-    vis2[x] = 1;
-    for ( int node : a2[x] ){
-        if ( !vis2[node] )
-            topo_dfsa2(node);
-    }
-    ans.pb(x);
-}
+int dx[] = {-1, 1,  0, 0, -1, -1,  1, 1};
+int dy[] = { 0, 0, -1, 1, -1,  1, -1, 1};
+
+//pbds
+//template<typename T>using ordered_set=tree<T,null_type,less<T>,rb_tree_tag,tree_order_statistics_node_update>;
+//template<typename T>using ordered_multiset=tree<T,null_type,less_equal<T>,rb_tree_tag,tree_order_statistics_node_update>;
+
+//debug
+
+//sc
+template<typename T1> istream &operator>>(istream &cin, vector<T1> &a) { for (auto &x : a) cin >> x; return cin; }
+
+// nCr = n! / r! * (n-r)!
+// nPr = n! / (n-r)!
+// .order_of_key(x)
+// *.find_by_order(x)
+//substr
+//cin.ignore();
+//get<idx>(z) //tuple
+//__builtin_popcount()
+//memset(dp, -1, sizeof(dp));
+//cout<<"Case "<<T<<": ";
+
+#define YES {cout<<"YES"<<endl;}
+#define NO  {cout<<"NO"<<endl;}
+#define IMP {cout<<"-1"<<endl;}
 
 
-void dfsa(int x){
-    vis[x] = 1;
-    for ( int node : a[x] ){
-        if ( !vis[node] )
-            dfsa(node);
-    }
-}
-void dfsa1(int x){
-    vis1[x] = 1;
-    for ( int node : a1[x] ){
-        if ( !vis1[node] )
-            dfsa1(node);
-    }
-}
-void dfsa2(int x){
-    vis2[x] = 1;
-    for ( int node : a2[x] ){
-        if ( !vis2[node] )
-            dfsa2(node);
-    }
-}
+///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE
+///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE
+///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE
+///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE
+///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE
+///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE            ///MAIN CODE
 
-ll parent[N];
-ll dist[N];
-void bfs( int s ){
-    queue<int> q;
-    q.push(s);
-    vis[s] = true;
-    parent[s] = -1;
-    while (!q.empty()) {
-        int v = q.front();
-        q.pop();
-        for (int u : a[v]) {
-            if (!vis[u]) {
-                vis[u] = true;
-                parent[u] = v;
-                q.push(u);
-            } else if ( dist[u] < dist[v]+1 ){
-                dist[u] = dist[v] + 1;
-                parent[u] = v;
-            } 
+// #define int ll
+const int N=25000007;
+
+vector<int>prime;
+
+void prime_gen(){
+    bitset<N>p;
+    p.set();
+    p[0]=p[1]=0;
+    prime.pb(1);
+    prime.pb(2);
+
+    ll i=3;
+    for(; (i*i)<N; i+=2){
+        if(p[i]==1){
+            prime.pb(i);
+            for(ll j=i*i; j<N; j+=(2*i)){p[j]=0;}
+        }
+    }
+    for(; i<N; i+=2){
+        if(p[i]==1){
+            prime.pb(i);
         }
     }
 }
 
-void solve(){
-    
-    // ll n;   cin >> n;
-    // vll a(n);   for ( int i = 0; i < n; i++ )  cin >> a[i];
-    
-    
-    cout << gcd(3,gcd(6,gcd(4,gcd(6,2))));
-    
-    
+int BS(int x){
+    int l=0,r=prime.size()-1;
+    int ans=-1;
+    while(l<=r){
+        int mid=(l+r)/2;
+        if(prime[mid]<=x){
+            ans=mid; l=mid+1;
+        }
+        else{
+            r=mid-1;
+        }
+    }
+    return ans;
 }
-    
-    
-signed main(){
-    fast(); 
-    class Timer { private: chrono::time_point <chrono::steady_clock> Begin, End; public: Timer () : Begin(), End (){ Begin = chrono::steady_clock::now(); } ~Timer () { End = chrono::steady_clock::now();cerr << "\nDuration: " << ((chrono::duration <double>)(End - Begin)).count() << "s\n"; } } T;
-    ll tt = 1;
-    // cin >> tt;
-    ll i = 1;
-    while ( tt-- > 0 ){
-        // cout << "Case " << i++ << ": ";
-        solve();
-    }      
-}  
+
+
+void solve(int T){
+    int n;  cin>>n;
+    int l=(n*n)/2;
+    int r=n*n;
+    int L=BS(l);
+    int R=BS(r);
+    cout<<R-L<<endl;
+    if(R-L!=0){
+        cout<<prime[L+1]<<endl;
+    }
+    else{
+        cout<<-1<<endl;
+    }
+} 
+
+
+
+
+
+int32_t main(){             //DRINK WATER
+    war();
+    //read();   write();
+    /////////////////////////////////////
+    prime_gen();
+    /////////////////////////////////////
+    int tc=1;
+    cin>>tc;
+    for(int T=1; T<=tc; T++){
+        solve(T);
+    }
+return 0;
+} 
+
+/*
+
+     /\_/\
+    (= ._.)
+    / >  \> Mr_Warlock
+   /      \
+
+*/
+ 
